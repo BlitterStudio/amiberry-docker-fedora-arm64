@@ -18,11 +18,6 @@ jobs:
     steps:
     - name: Check out the repo
       uses: actions/checkout@v4
-      
-    - name: Set up QEMU for ARM64
-      uses: docker/setup-qemu-action@v3
-      with:
-        platforms: arm64
 
     - name: Log in to Docker Hub
       uses: docker/login-action@v3
@@ -38,4 +33,3 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: "midwan/amiberry-fedora-arm64:latest"
-        platforms: linux/arm64

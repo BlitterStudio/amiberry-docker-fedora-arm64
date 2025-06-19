@@ -1,6 +1,6 @@
 # amiberry-docker-fedora-arm64
 
-A Dockerfile which creates an image with all requirements to build Amiberry for a Fedora `arm64` platform.
+A Dockerfile which creates an image with all requirements to cross compile Amiberry for a Fedora `arm64` platform on an x86_64 host.
 
 The image is based on Fedora:latest and includes all Amiberry dependencies (e.g. SDL2, SDL2-image, etc)
 
@@ -9,13 +9,13 @@ The full image is available on DockerHub: <https://hub.docker.com/repository/doc
 ## Usage
 
 ```bash
-docker run --rm -it --platform linux/arm64 -v <dir-you-cloned-amiberry-into>:/build midwan/amiberry-fedora-arm64:latest
+docker run --rm -it -v <dir-you-cloned-amiberry-into>:/build midwan/amiberry-fedora-arm64:latest
 ```
 
-Then you can proceed to compile Amiberry, e.g.:
+Then you can proceed to compile Amiberry with the relevant toolchain file, e.g.:
 
 ```bash
-cmake -B build && cmake --build build
+cmake -DCMAKE_TOOLCHAIN_FILE=cmake/Toolchain-aarch64-linux-gnu.cmake -B build && cmake --build build
 ```
 
 ## Building the image locally
