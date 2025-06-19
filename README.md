@@ -8,6 +8,6 @@ The full image is available on DockerHub: <https://hub.docker.com/repository/doc
 
 ## Usage
 
-`docker run --rm -it -v <dir-you-cloned-amiberry-into>:/build midwan/amiberry-fedora-arm64:latest`
+`docker run --rm -it --platform linux/arm64 -v <dir-you-cloned-amiberry-into>:/build midwan/amiberry-fedora-arm64:latest`
 
 Then you can proceed to compile Amiberry as usual, e.g. `cmake -B build && cmake --build build`
