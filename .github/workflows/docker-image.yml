@@ -28,7 +28,9 @@ jobs:
     - name: Build and push Fedora Docker image
       uses: docker/build-push-action@v6
       with:
-        build-args: "fedora_release=latest"
+        build-args: |
+          fedora_release=latest
+          PLATFORM=linux/arm64
         context: .
         file: ./Dockerfile
         push: true
