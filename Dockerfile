@@ -15,7 +15,7 @@ LABEL description="Image with the requirements to cross-compile Amiberry for Fed
 RUN dnf makecache --refresh \
     && dnf -y install rpm-build cmake ninja-build git gcc g++ \
     gcc-aarch64-linux-gnu cross-aarch64-linux-gnu-binutils cross-aarch64-linux-gnu-gcc \
-    SDL2-devel-aarch64-linux-gnu SDL2_ttf-devel-aarch64-linux-gnu SDL2_image-devel-aarch64-linux-gnu flac-devel-aarch64-linux-gnu libmpg123-devel-aarch64-linux-gnu libpng-devel-aarch64-linux-gnu libmpeg2-devel-aarch64-linux-gnu libserialport-devel-aarch64-linux-gnu portmidi-devel-aarch64-linux-gnu enet-devel-aarch64-linux-gnu libpcap-devel-aarch64-linux-gnu libzstd-devel-aarch64-linux-gnu \
+    SDL2-devel-aarch64-linux-gnu SDL2_ttf-devel-aarch64-linux-gnu SDL2_image-devel-aarch64-linux-gnu flac-devel-aarch64-linux-gnu libmpg123-devel-aarch64-linux-gnu libpng-devel-aarch64-linux-gnu libmpeg2-devel-aarch64-linux-gnu libserialport-devel-aarch64-linux-gnu portmidi-devel-aarch64-linux-gnu enet-devel-aarch64-linux-gnu libpcap-devel-aarch64-linux-gnu libzstd-devel-aarch64-linux-gnu glew-devel-aarch64-linux-gnu \
     && dnf clean all \
     && rm -rf /var/cache/dnf
 
