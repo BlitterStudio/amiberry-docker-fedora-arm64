@@ -9,23 +9,15 @@ ARG fedora_release=latest
 FROM fedora:${fedora_release} AS build
 
 LABEL maintainer="Dimitris Panokostas"
-LABEL description="Image with the requirements to cross-compile Amiberry for Fedora AARCH64 (ARM64)"
+LABEL description="Image with the requirements to compile Amiberry for Fedora AARCH64 (ARM64)"
 
-# Install cross-compiler and ARM64 development libraries
+# Install development libraries
 RUN dnf makecache --refresh \
     && dnf -y install rpm-build cmake ninja-build git gcc g++ \
-    gcc-aarch64-linux-gnu cross-aarch64-linux-gnu-binutils cross-aarch64-linux-gnu-gcc \
-    SDL2-devel-aarch64-linux-gnu SDL2_ttf-devel-aarch64-linux-gnu SDL2_image-devel-aarch64-linux-gnu flac-devel-aarch64-linux-gnu libmpg123-devel-aarch64-linux-gnu libpng-devel-aarch64-linux-gnu libmpeg2-devel-aarch64-linux-gnu libserialport-devel-aarch64-linux-gnu portmidi-devel-aarch64-linux-gnu enet-devel-aarch64-linux-gnu libpcap-devel-aarch64-linux-gnu libzstd-devel-aarch64-linux-gnu glew-devel-aarch64-linux-gnu \
+    SDL2-devel SDL2_ttf-devel SDL2_image-devel flac-devel libmpg123-devel libpng-devel libmpeg2-devel libserialport-devel portmidi-devel enet-devel libpcap-devel libzstd-devel glew-devel \
     && dnf clean all \
     && rm -rf /var/cache/dnf
 
 WORKDIR /build
-
-ENV ARCH=aarch64-linux-gnu
-ENV AS=${ARCH}-as
-ENV CC=${ARCH}-gcc
-ENV CXX=${ARCH}-g++
-ENV STRIP=${ARCH}-strip
-ENV CROSS_COMPILE=${ARCH}-
 
 CMD [ "bash" ]
