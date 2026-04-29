@@ -8,8 +8,11 @@
 ARG fedora_release=latest
 FROM fedora:${fedora_release} AS build
 
-LABEL maintainer="Dimitris Panokostas"
-LABEL description="Image with the requirements to compile Amiberry for Fedora AARCH64 (ARM64)"
+LABEL org.opencontainers.image.title="Amiberry build environment (Fedora arm64)"
+LABEL org.opencontainers.image.description="Image with the requirements to compile Amiberry for Fedora AARCH64 (ARM64)"
+LABEL org.opencontainers.image.authors="Dimitris Panokostas"
+LABEL org.opencontainers.image.source="https://github.com/BlitterStudio/amiberry-docker-fedora-arm64"
+LABEL org.opencontainers.image.licenses="GPL-3.0"
 
 # Install development libraries
 RUN dnf makecache --refresh \
